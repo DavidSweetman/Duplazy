@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "Duplazy",
+    "description": "Extension to automatically duplicate commonly usd characters such as brackets and quotations",
+    "version": "1.0",
+    "background": {
+        "persistent": false,
+        "scripts": ["background.js"]
+    },
+    "icons": {
+        "16": "quote.png",
+        "48": "quote.png",
+        "128": "quote.png"
+    }
+}
