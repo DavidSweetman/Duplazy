@@ -1,5 +1,5 @@
 console.log("content_script.js");
-window.addEventListener("keyup", myFunc);
+window.addEventListener("keyup", duplicate);
 
 let mappings = {
     "\"" : "\"",
@@ -7,14 +7,14 @@ let mappings = {
     "\{" : "\}",
 };
 
-function myFunc(e) {
+function duplicate(keyPress) {
 
     for (let m in mappings){
-        if (e.key === m){
-            let tval = e.target.value;
-            let caret = e.target.selectionStart;
-            e.target.value = tval + mappings[m];
-            e.target.selectionEnd = caret;
+        if (keyPress.key === m){
+            let textval = keyPress.target.value;
+            let caretPosition = keyPress.target.selectionStart;
+            keyPress.target.value = textval + mappings[m];
+            keyPress.target.selectionEnd = caretPosition;
         }
 
     }
