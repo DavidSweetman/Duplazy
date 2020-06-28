@@ -3,10 +3,16 @@
     "name": "Duplazy",
     "description": "Extension to automatically duplicate commonly usd characters such as brackets and quotations",
     "version": "1.0",
-    "background": {
-        "persistent": false,
-        "scripts": ["background.js"]
-    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": ["background.js"],
+            "run_at": "document_end"
+        }
+    ],
     "icons": {
         "16": "quote.png",
         "48": "quote.png",
