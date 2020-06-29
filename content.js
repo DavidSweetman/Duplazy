@@ -1,26 +1,40 @@
-console.log("content_script.js");
 window.addEventListener("keyup", duplicate);
 
 // Map of values to listen for in text input along with the corresponding value to add
-let mappings = {
-    "\"" : "\"",
-    "\(" : "\)",
-    "\{" : "\}",
-    "\[" : "\]",
-};
+let quoteMapping = {name: "quote", open:"\"", close:"\"", active:true };
+let bracketMapping = {name: "bracket", open:"\[", close:"\]", active:true };
+let braceMapping = {name: "brace", open:"\{", close:"\}", active:true };
+let parenthesesMapping = {name: "parentheses", open:"\(", close:"\)", active:true };
+
+
+
+chrome.storage.sync.get({
+    quote: true,
+    brace: true,
+    parentheses: true,
+    bracket: true
+}, function(items) {
+    quoteMapping.active = items.quote;
+    braceMapping.active = items.brace;
+    parenthesesMapping.active = items.parentheses;
+    bracketMapping.active = items.bracket;
+});
+
+
+let optionsMappings = [quoteMapping, braceMapping, bracketMapping, parenthesesMapping];
+
 
 //Function to add corresponding value when keypress event value is one of mapped values
 function duplicate(keyPress) {
 
-    for (let m in mappings){
-        if (keyPress.key === m){
+    optionsMappings.forEach((obj) => {
+        if (keyPress.key === obj.open && obj.active){
             let textval = keyPress.target.value;
             let caretPosition = keyPress.target.selectionStart;
-            keyPress.target.value = textval + mappings[m];
+            keyPress.target.value = textval + obj.close;
+
             //Reset caret position to previous position after character is added
             keyPress.target.selectionEnd = caretPosition;
         }
+    });}
 
-    }
-
-}

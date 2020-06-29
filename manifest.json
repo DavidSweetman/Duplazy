@@ -17,5 +17,12 @@
         "16": "quote.png",
         "48": "quote.png",
         "128": "quote.png"
-    }
+    },
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "permissions": [
+        "storage"
+    ]
 }
