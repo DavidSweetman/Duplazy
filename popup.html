@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Test Extension Options</title>
+    <link rel="stylesheet" type="text/css" href="options.css">
+</head>
+<body>
+<div class="popupContainer">
+    <p>Choose the characters you would like Duplazy to duplicate automatically</p>
+
+    <div class="formContainer">
+        <form >
+            <label>
+                <input class="cbInput" type="checkbox" id="Quote" value="Quote">
+                " Quotations "
+            </label><br>
+            <label>
+                <input class="cbInput" id="Parentheses" type="checkbox" value="Parentheses">
+                ( Parentheses )
+            </label><br>
+            <label>
+                <input class="cbInput" type="checkbox" id="Braces" value="Braces">
+                { Braces }
+            </label><br>
+            <label>
+                <input class="cbInput" type="checkbox" id="Bracket" value="Bracket">
+                [ Brackets ]
+            </label><br>
+        </form>
+
+    </div>
+
+
+    <div id="status"></div>
+    <button id="save">Save</button>
+
+    <script src="options.js"></script>
+</div>
+</body>
+</html>

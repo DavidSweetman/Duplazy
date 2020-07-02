@@ -5,3 +5,8 @@ input[type=checkbox]{
 body{
     background-color: gainsboro;
 }
+
+.popupContainer{
+    width: 300px;
+
+}
