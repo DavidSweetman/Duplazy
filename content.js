@@ -11,11 +11,9 @@ chrome.storage.sync.get({ 'quote': false, 'brace': false, 'parentheses': false, 
         parenthesesMapping.active = items.parentheses;
         bracketMapping.active = items.bracket;
         enabled = quoteMapping.active || braceMapping.active ||parenthesesMapping.active  || bracketMapping.active;
-        console.log("Duplazy Enabled : " + enabled);
     });
 
 let optionsMappings = [quoteMapping, braceMapping, bracketMapping, parenthesesMapping];
-console.log(optionsMappings);
 
 //Function to add corresponding value when keypress event value is one of mapped values
 function duplicate(keyPress) {
